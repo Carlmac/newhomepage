@@ -1,0 +1,165 @@
+todo API
+
+***  获取 tormb  ***
+
+调用函数
+getTormbItems()
+
+方法
+get
+
+URL
+tormb_get.php
+
+参数
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0 表示成功
+  },
+  "data": {
+    "tormbItems": [
+      {
+        "tormb_id": 1,
+        "content": '示例1',
+        "date": "2017-10-01"
+        "is_annual": 1 | 0, // 1 表示 true, 0 表示 false
+        "user_id": 1
+      },
+      {
+        "tormb_id": 1,
+        "content": '示例1',
+        "date": "2017-10-01"
+        "is_annual": 1 | 0, // 1 表示 true, 0 表示 false
+        "user_id": 1
+      }
+    ]
+  }
+}
+
+** 获取数据后记得把 1, 0 转换为布尔值
+
+*************************************
+
+***  添加 tormb  ***
+
+调用函数
+addItem()
+
+方法
+post
+
+URL
+tormb_add.php
+
+参数
+content
+date
+is_annual
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0 表示成功
+  },
+  "data": {
+    "tormb_id": 1,
+    "content": '示例1',
+    "date": "2018-10-01"
+    "is_annual": 0 | 1, // 0 == true, 1 == false
+    "user_id": 1
+  }
+}
+
+** 获取数据后记得把 0, 1 转换为 false, true
+
+*************************************
+
+***  编辑 tormb  ***
+
+调用函数
+doneEdit()
+
+方法
+post
+
+URL
+todo_edit.php
+
+参数
+tormb_id
+content
+date
+is_annual
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1   // 0 表示成功, 1 表示 user_id 不对
+  },
+  "data": {
+    "content": '修改后的content',
+    "date": '修改后的date',
+    "is_annual": 0 | 1   // 0 == false, 1 == true
+  }
+}
+
+** 获取数据后记得把 0, 1 转换为 false, true
+
+*************************************
+
+***  更新 tormb 到明年今日  ***
+
+调用函数
+recycleAnnualItem()
+
+方法
+post
+
+URL
+tormb_recycle.php
+
+参数
+tormb_id
+date
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1   // 0 表示成功, 1 表示 user_id 不对
+  }
+}
+
+*************************************
+
+***  删除 tormb  ***
+
+调用函数
+removeItem()
+
+方法
+get
+
+URL
+tormb_remove.php
+
+参数
+tormb_id
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1   // 0 表示成功, 1 表示 user_id 不对
+  }
+}

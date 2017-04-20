@@ -1,0 +1,28 @@
+login API
+
+调用函数
+submitLoginData()
+
+方法
+post
+
+URL
+login.php
+
+参数
+email
+password
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1 | 2   // 0 : 成功; 1 : 找不到该用户; 2 : 表单数据为空
+  },
+  "data": {
+    "user_id": 1,
+    "user_name": "CJ",
+    "user_level": 0     // 0 为管理员，其它为 1
+  }
+}
+

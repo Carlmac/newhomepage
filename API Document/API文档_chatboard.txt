@@ -1,0 +1,108 @@
+chatboard API
+
+***  获取 messages  ***
+
+调用函数
+getMessages()
+
+方法
+get
+
+URL
+chatboard_get_msg.php
+
+参数
+start
+display
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0: success, 1: 表单数据错误
+  },
+  "data": {
+    "messages": [
+      {
+        message_id: 2,
+        user_id: 1,
+        avatar: 'avatar',
+        user_name: 'CJ',
+        content: 'some text',
+        post_time: '2017-01-01 23:00:00'
+      },
+      {
+        message_id: 2,
+        user_id: 1,
+        avatar: 'avatar',
+        user_name: 'CJ',
+        content: 'some text',
+        post_time: '2017-01-01 23:00:00'
+      }
+    ],
+    "messages_length": 30   // 留言条数
+  }
+}
+
+*************************************
+
+***  添加 message  ***
+
+调用函数
+postMessage()
+
+方法
+post
+
+URL
+chatboard_post_msg.php
+
+参数
+content
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0
+  },
+  "data": {
+    "message_id": 2,
+    "user_id": 1,
+    "avatar": "avatar",
+    "user_name": "CJ",
+    "content": "some text",
+    "post_time": "2017-01-01 23:00:00"
+  }
+}
+
+$SUCCESS_CODE = 0;
+$NO_RECORD_CODE = 1;
+$INSERT_ERROR_CODE = 2;
+$FORM_ERROR_CODE = 3;
+
+*************************************
+
+***  删除 message  ***
+
+调用函数
+deleteMessage()
+
+方法
+get
+
+URL
+chatboard_delete_msg.php
+
+参数
+message_id
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1 | 2 | 3   // 0: success, 1: todo_id 和 user_id 不对, 2: 数据库修改失败, 3: 表单数据错误
+  }
+}

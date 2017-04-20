@@ -1,0 +1,33 @@
+login API
+
+调用函数
+submitRegisterForm()
+
+方法
+post
+
+URL
+register.php
+
+参数
+email
+user_name
+pass1
+pass2
+last_name
+first_name
+avatar
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1 | 2 | 3   // 0 : 成功; 1 : 插入失败; 2 : email 已存在; 3 ：提交的表单数据缺失
+  },
+  "data": {
+    "user_id": 1,
+    "user_name": "CJ",
+    "user_level": 0     // 0 为管理员，其它为 1
+  }
+}
+

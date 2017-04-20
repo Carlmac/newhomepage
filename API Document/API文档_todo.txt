@@ -1,0 +1,156 @@
+todo API
+
+***  获取 todo  ***
+
+调用函数
+getTodoItems()
+
+方法
+get
+
+URL
+todo_get.php
+
+参数
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0: success, 1: 表单数据错误
+  },
+  "data": {
+    "todoItems": [
+      {
+        "todo_id": 1,
+        "content": '示例1',
+        "is_complete": 1 | 0, // 1 表示 true, 0 表示 false
+        "user_id": 1
+      },
+      {
+        "todo_id": 2,
+        "content": '示例2',
+        "is_complete": 1 | 0,
+        "user_id": 1
+      }
+    ]
+  }
+}
+
+** 获取数据后记得把 1, 0 转换为布尔值
+
+*************************************
+
+***  添加 todo  ***
+
+调用函数
+addItem()
+
+方法
+post
+
+URL
+todo_add.php
+
+参数
+content
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0: success, 1: 用户不存在, 2: 数据库插入失败, 3: 表单数据错误
+  },
+  "data": {
+    "todo_id": 1,
+    "content": '示例1',
+    "is_complete": 0, // 默认为 0
+    "user_id": 1
+  }
+}
+
+** 获取数据后记得把 0 转换为 false
+
+*************************************
+
+***  编辑 todo  ***
+
+调用函数
+doneEdit()
+
+方法
+post
+
+URL
+todo_edit.php
+
+参数
+todo_id
+content
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0   // 0: success, 1: todo_id 和 user_id 不对, 2: 数据库修改失败, 3: 表单数据错误
+  },
+  "data": {
+    "content": '修改后的content'
+  }
+}
+
+*************************************
+
+***  切换 todo 完成状态  ***
+
+调用函数
+toggleTodo()
+
+方法
+get
+
+URL
+todo_toggle.php
+
+参数
+todo_id
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1 | 2 | 3  // 0: success, 1: todo_id 和 user_id 不对, 2: 数据库修改失败, 3: 表单数据错误
+  },
+  "data": {
+    "is_complete": 0 | 1  // 1 表示 true, 0 表示 false, 已经在数据库中更改过的值
+  }
+}
+
+*************************************
+
+***  删除 todo  ***
+
+调用函数
+removeItem()
+
+方法
+get
+
+URL
+todo_remove.php
+
+参数
+todo_id
+user_id
+
+返回值
+
+{
+  "status": {
+    "code": 0 | 1 | 2 | 3   // 0: success, 1: todo_id 和 user_id 不对, 2: 数据库修改失败, 3: 表单数据错误
+  }
+}
